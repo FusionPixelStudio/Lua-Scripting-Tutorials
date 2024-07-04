@@ -1,3 +1,7 @@
+--[[
+  This File Creates a timeline, adds an image from the downloads folder, then turns it into a fusion clip and adds nodes into fusion.
+]]--
+
 local resolve = Resolve()
 local projectManager = resolve:GetProjectManager()
 local project = projectManager:GetCurrentProject()
