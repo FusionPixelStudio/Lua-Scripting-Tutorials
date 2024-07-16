@@ -1,3 +1,7 @@
+--[[
+    This Script Creates a GUI Window that has LineEdits, Buttons, and ComboBoxes. All Bins that are present in the project are displayed inside ComboBox.
+]]
+
 local resolve = app:GetResolve() -- Works for Both Free and Studio Resolve
 local projectManager = resolve:GetProjectManager()
 local mediaStorage = resolve:GetMediaStorage()
