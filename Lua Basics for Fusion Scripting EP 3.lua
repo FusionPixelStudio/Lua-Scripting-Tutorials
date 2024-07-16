@@ -1,4 +1,4 @@
-local resolve = app:GetResolve()
+local resolve = app:GetResolve() -- Works for Both Free and Studio Resolve
 local projectManager = resolve:GetProjectManager()
 local mediaStorage = resolve:GetMediaStorage()
 local project = projectManager:GetCurrentProject()
@@ -13,7 +13,7 @@ MainWindow = disp:AddWindow(
     {
         ID = "MainWind",
         WindowTitle = "Import And Append",
-        Geometry = { 950, 400, 300, 150},
+        Geometry = { 950, 400, 300, 150}, -- {PosX, PosY, SizeW, SizeH}
         ui:VGroup{
             ID = "root",
             ui:HGroup{
@@ -33,7 +33,7 @@ MainWindow = disp:AddWindow(
                 ui:Label{ ID = "Bin", Text = "Bin for Folder", Weight = 0.25 },
                 ui:ComboBox{ ID = "Bins", Weight = 0.75 },
             },
-            ui:Label{ Weight = 0, FrameStyle = 4 },
+            ui:Label{ Weight = 0, FrameStyle = 4 }, -- Separator Line
             ui:HGroup{
                 ui:Label{ ID = "TimelineName", Text = "Timeline Name", Weight = 0.25 },
                 ui:LineEdit{ ID = "TMLName", PlaceholderText = "My Cool Timeline", Weight = 0.75 }
@@ -45,8 +45,8 @@ MainWindow = disp:AddWindow(
 
 local itm = MainWindow:GetItems()
 
-itm.Bins:AddItem(rootBin:GetName())
-function fillCombo(bins)
+itm.Bins:AddItem(rootBin:GetName()) -- Add Master Bin to ComboBox
+function fillCombo(bins) -- Find the rest of the bins and add them to ComboBox
     for _, bin in ipairs(bins) do
         local test = bin:GetSubFolderList()
         if #test < 1 then
@@ -64,6 +64,6 @@ function MainWindow.On.MainWind.Close(ev)
 end
 
 MainWindow:Show()
-disp:RunLoop()
-MainWindow:Hide()
+disp:RunLoop() -- Loop Until Break(ExitLoop)
+MainWindow:Hide() -- Close Window after Loop Exits
 print("FINSIHED")
